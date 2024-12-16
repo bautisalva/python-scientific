@@ -14,7 +14,7 @@ SNIP: identify peaks, throw them away and get the baseline iteratively.
 
 """
 print(__doc__)
-
+#%%
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -23,11 +23,12 @@ import scipy.sparse as sparse
 from scipy.sparse.linalg  import spsolve
 
 from pybaselines import Baseline, utils
-
+import os
+os.chdir(r'E:\Documents\py_ITBA\python-scientific\data')
 
 print('Baseline Removal')
 
-signals = pd.read_csv('data/blinking.dat', delimiter=' ', names = ['timestamp','counter','eeg','attention','meditation','blinking'])
+signals = pd.read_csv('blinking.dat', delimiter=' ', names = ['timestamp','counter','eeg','attention','meditation','blinking'])
 data = signals.values
 eeg = data[:,2]
 
